@@ -14,7 +14,7 @@ spec:
         app: date-time-ui
     spec:
       containers:
-      - image: index.docker.io/jvermeir/date-time:latest
+      - image: index.docker.io/jvermeir/date-time:1.0.0
         name: date-time-ui
         ports:
         - containerPort: 8000
