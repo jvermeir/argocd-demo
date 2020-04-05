@@ -8,9 +8,13 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
-        x = datetime.datetime.now()
-
-        self.wfile.write(str.encode(str(x)))
+        text = str(datetime.datetime.now())
+        print ("text: " + text)
+        with open('git-hash.txt') as reader:
+            version = reader.read()
+            print ("version: " + version)
+        text = text + " - " + version
+        self.wfile.write(text.encode())
 
 
 httpd = HTTPServer(('0.0.0.0', PORT), SimpleHTTPRequestHandler)
