@@ -2,14 +2,23 @@
 
 ## Install 
 
-Do steps 1-4 described here:
+Do steps 1 and 2 described here:
 
     See https://argoproj.github.io/argo-cd/getting_started/
 
-To get access to the Argo ui, run this in a terminal:
+To get access to the Argo ui, use port forwarding. run this in a terminal:
 
     kubectl port-forward svc/argocd-server -n argocd 8080:443 &
 
+login
+
+    # get password
+    kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+
+    argocd login localhost:8080
+    
+Access Argo web ui: open http://localhost:8080 in a private window    
+     
 ## Test 
 
 Create ArgoCD app based on a simple Python http server running in a Docker container. The image is stored on Docker hub.
