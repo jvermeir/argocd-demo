@@ -13,7 +13,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         with open('git-hash.txt') as reader:
             version = reader.read()
             print ("new version: " + version)
-        text = text + " - " + version
+        text = "new! " + text + " - " + version
         self.wfile.write(text.encode())
 
 
