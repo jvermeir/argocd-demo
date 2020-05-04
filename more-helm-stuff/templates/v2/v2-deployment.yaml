@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "v2"
   labels:
-    app: {{ metadata.name }}
+    app: {{ .metadata.name }}
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -12,12 +12,12 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ metadata.name }}
+      app: {{ .metadata.name }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ metadata.name }}
+        app: {{ .metadata.name }}
         release: {{ .Release.Name }}
     spec:
       containers:

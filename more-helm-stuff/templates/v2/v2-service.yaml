@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: "v2"
   labels:
-    app: {{ metadata.name }}
+    app: {{ .metadata.name }}
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ metadata.name }}
+    app: {{ .metadata.name }}
     release: {{ .Release.Name }}
