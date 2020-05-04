@@ -1,9 +1,10 @@
 apiVersion: v1
 kind: Service
+{{- $appName := "v2" -}}
 metadata:
-  name: {{ .myValues.appName }}
+  name: {{ $appName }}
   labels:
-    app: {{ .Values.appName }}
+    app: {{ $appName }}
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -15,5 +16,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ .Values.appName }}
+    app: {{ $appName }}
     release: {{ .Release.Name }}
