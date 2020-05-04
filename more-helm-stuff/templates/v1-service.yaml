@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: "v1"
   labels:
-    app:"v1"
+    app: "v1"
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
