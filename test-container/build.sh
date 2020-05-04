@@ -9,4 +9,6 @@ VERSION=$1
 
 git rev-parse --short HEAD > git-hash.txt
 docker build . -t jvermeir/date-time:$VERSION
-docker push jvermeir/date-time
+docker push jvermeir/date-time $VERSION
+
+rm git-hash.txt
