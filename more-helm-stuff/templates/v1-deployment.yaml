@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "more-helm-stuff.fullname" . }}
+  name: "v1"
   labels:
     app: {{ template "more-helm-stuff.name" . }}
     chart: {{ template "more-helm-stuff.chart" . }}
