@@ -26,8 +26,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources:
-  {
+resources: {
   appNames: {
       v2: v2
       v1: v1
