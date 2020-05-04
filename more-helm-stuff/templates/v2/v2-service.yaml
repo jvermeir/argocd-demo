@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
-{{- $appName := "v2" -}}
 metadata:
+  {{- $appName := "v2" -}}
   name: {{ $appName }}
   labels:
     app: {{ $appName }}
@@ -16,5 +16,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ $appName }}
+    app: {{ .Metadata.appName }}
     release: {{ .Release.Name }}
