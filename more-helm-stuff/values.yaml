@@ -28,9 +28,10 @@ ingress:
 
 resources:
   {
-  appNames:
-    v2: v2
-    v1: v1
+  appNames: {
+      v2: v2
+      v1: v1
+  }
 }
 
   # We usually recommend not to specify default resources and to leave this as a conscious
