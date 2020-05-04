@@ -1,10 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
-{{- $appName := "v2" -}}
 metadata:
-  name: {{ $appName }}
+  name: {{ .Values.appNames.v2 }}
   labels:
-    app: {{ $appName }}
+    app: {{ .Values.appNames.v2 }}
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -13,12 +12,12 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ $appName }}
+      app: {{ .Values.appNames.v2 }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ $appName }}
+        app: {{ .Values.appNames.v2 }}
         release: {{ .Release.Name }}
     spec:
       containers:
