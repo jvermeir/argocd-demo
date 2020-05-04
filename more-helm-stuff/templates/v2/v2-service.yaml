@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.appName }}
+  name: {{ .myValues.appName }}
   labels:
     app: {{ .Values.appName }}
     chart: {{ template "more-helm-stuff.chart" . }}
