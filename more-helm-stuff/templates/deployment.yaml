@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "labelX"
+  name: {{ template "more-helm-stuff.fullname" . }}
   labels:
-    app: {{ .metadata.name }}
+    app: {{ template "more-helm-stuff.name" . }}
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  revisionHistoryLimit: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app:  {{ .metadata.name }}
+      app: {{ template "more-helm-stuff.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app:  {{ .metadata.name }}
+        app: {{ template "more-helm-stuff.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
-        - name: "{{ .metadata.name }}"
+        - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

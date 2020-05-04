@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: labelXService
+  name: {{ template "more-helm-stuff.fullname" . }}
   labels:
-    app: labelXService
+    app: {{ template "more-helm-stuff.name" . }}
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: labelXService
+    app: {{ template "more-helm-stuff.name" . }}
     release: {{ .Release.Name }}
