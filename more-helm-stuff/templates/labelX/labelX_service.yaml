@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "helm-date-time.fullname" . }}
+  name: labelXService
   labels:
-    app: {{ template "helm-date-time.name" . }}
-    chart: {{ template "helm-date-time.chart" . }}
+    app: labelXService
+    chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "helm-date-time.name" . }}
+    app: labelXService
     release: {{ .Release.Name }}
