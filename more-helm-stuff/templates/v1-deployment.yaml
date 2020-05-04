@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "v1"
   labels:
-    app: {{ template "more-helm-stuff.name" . }}
+    app: "v1"
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -12,19 +12,19 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "more-helm-stuff.name" . }}
+      app: "v1"
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "more-helm-stuff.name" . }}
+        app: "v1"
         release: {{ .Release.Name }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args: [ "param1"]
+          args: [ "v1"]
           ports:
             - name: http
               containerPort: 8000
