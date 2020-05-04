@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "more-helm-stuff.name" . }}
+    app: "v1"
     release: {{ .Release.Name }}
