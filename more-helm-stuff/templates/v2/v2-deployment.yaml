@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appNameV2 }}
+  name: {{ .Values.appNameV2 }}-deployment
   labels:
-    app: {{ .Values.appNameV2 }}
+    app: {{ .Values.appNameV2 }}-deployment
     chart: {{ template "more-helm-stuff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
