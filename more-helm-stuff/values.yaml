@@ -26,12 +26,10 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {
-  appNames: {
-      v2: v2
-      v1: v1
-  }
-}
+appNameV1: v1
+appNameV2: v2
+
+resources: {}
 
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
