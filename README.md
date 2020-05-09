@@ -40,6 +40,26 @@ The Docker container is referenced in `date_time/date-time-ui-deployment.yaml`, 
 
 ```bash
 cd date-time
-./build.sh
+./build.sh <version identifier>
 ```
+
+where `version identifier` is a random string that identifies this version.
+
+## More experiments
+
+deploy app named `more-helm-stuff` based on a folder of the same name
+
+    argocd app create more-helm-stuff --repo https://github.com/jvermeir/argocd-demo.git --path more-helm-stuff --dest-server https://kubernetes.default.svc --dest-namespace default --upsert
+
+more-helm-stuff has two services, v1 and v2, both based on the date-time test container. The containers can be identified by their return value.
+The return value includes a label that is set as an argument to the container in v1-deployment.yaml and v2-deployment.yaml.
+
+delete an app 
+
+    argocd app delete more-helm-stuff
     
+update app
+
+    argocd app sync more-helm-stuff
+    
+        
